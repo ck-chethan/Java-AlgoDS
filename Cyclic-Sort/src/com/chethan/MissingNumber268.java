@@ -11,7 +11,7 @@ class MissingNumber268 {
 //            if nums[i] == i+1:
 //            return nums[i]-1
 //            return len(nums)
-    
+
     public static void main(String[] args) {
         int[] arr = {2, 1};
         int res = missingNumber(arr);
