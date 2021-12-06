@@ -1,13 +1,24 @@
 package com.chethan;
 
 class MissingNumber268 {
+    // https://leetcode.com/problems/missing-number/
+    // Amazon
+
+//    class Solution:
+//    def missingNumber(self, nums: List[int]) -> int:
+//            nums.sort()
+//            for i in range(len(nums)):
+//            if nums[i] == i+1:
+//            return nums[i]-1
+//            return len(nums)
+    
     public static void main(String[] args) {
         int[] arr = {2, 1};
         int res = missingNumber(arr);
         System.out.print(res);
     }
-    static int missingNumber(int[] nums) {
 
+    static int missingNumber(int[] nums) {
         sort(nums);
         for(int i=0; i < nums.length; i++){
             if(nums[i] != i){
