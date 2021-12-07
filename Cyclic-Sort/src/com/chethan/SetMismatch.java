@@ -13,14 +13,12 @@ class SetMismatch {
 
     public static int[] findErrorNums(int[] nums) {
         sort(nums);
-        int[] mdNum = new int[2];
         for (int i = 0; i < nums.length; i++) {
             if(nums[i] != i+1){
-                mdNum[0] = nums[i]; //Duplicate Number
-                mdNum[1] = i+1; //Missing Number
+                return new int[] {nums[i], i+1};
             }
         }
-        return mdNum;
+        return new int[] {-1, -1};
     }
 
     static void sort(int[] arr){
