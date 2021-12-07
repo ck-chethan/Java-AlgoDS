@@ -11,22 +11,22 @@ class FindDuplicateNumber {
     }
 
     public static int findDuplicate(int[] nums) {
-        sort(nums);
-        return nums[nums.length-1];
-    }
-
-    static void sort(int[] arr){
         int i = 0;
-        while(i< arr.length){
-            int correct = arr[i] - 1;
-            if(arr[i] != arr[correct]) {
-                swap2elements(arr, i, correct);
-            }
-            else{
+        while(i< nums.length) {
+            if (nums[i] != i + 1) {
+                int correct = nums[i] - 1;
+                if (nums[i] != nums[correct]) {
+                    swap2elements(nums, i, correct);
+                } else {
+                    return nums[i];
+                }
+            } else{
                 i++;
             }
         }
+        return -1;
     }
+
 
     static void swap2elements(int[] arr, int first, int second) {
         int temp = arr[first];
