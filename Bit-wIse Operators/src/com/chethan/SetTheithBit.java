@@ -3,8 +3,12 @@ package com.chethan;
 public class SetTheithBit {
     public static void main(String[] args) {
         int n = 153;
-        int i = 3;
-        System.out.println(setithBit(n,i));
+        int[] bit = {2, 3, 6, 7};
+        int res = n;
+        for (int i : bit) {
+            res = setithBit(res, i);
+        }
+        System.out.println(res);
     }
 
     private static int setithBit(int n, int i) {
