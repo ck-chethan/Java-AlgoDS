@@ -1,12 +1,13 @@
 package com.chethan;
 
-public class BinarySearch {
+class BSLeetcode704 {
     public static void main(String[] args) {
-        int[] arr = {0,1,2,3,4,5,6,7,8,9,10};
-        int ans = bs(arr, 05, 0, arr.length-1);
-        System.out.println(ans);
+        int[] arr = {-1,0,3,5,9,12};
+        System.out.print(search(arr, 0));
     }
-
+    static int search(int[] nums, int target) {
+        return bs(nums, target, 0, nums.length-1);
+    }
     static int bs(int[] arr, int n, int start, int end){
         if(start > end){
             return -1;
