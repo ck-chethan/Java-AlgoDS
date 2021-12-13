@@ -3,22 +3,17 @@ package com.chethan;
 // Or If n&(n-1) == 0 Then it's a power of 2
 public class PowerOf2 {
     public static void main(String[] args) {
-        int n = 1;
-        method1(n);
-        method2(n);
+        int n = 4;
+        System.out.println(method1(n));
+        System.out.println(method2(n));
     }
     //Method 1
-    static void method1(int n){
-        if(n>0 && (n&(n-1)) == 0){
-            System.out.println("Power of 2");
-        }
-        else{
-            System.out.println("Not a Power of 2");
-        }
+    static boolean method1(int n){
+        return n>0 && (n&(n-1)) == 0;
     }
 
     //Method 2
-    static void method2(int n){
+    static boolean method2(int n){
         int counter = 0;
         while(n>0){
             if((n&1)!=0){
@@ -26,11 +21,6 @@ public class PowerOf2 {
             }
             n=n>>1;
         }
-        if(counter == 1){
-            System.out.println("Power of 2");
-        }
-        else{
-            System.out.println("Not a Power of 2");
-        }
+        return counter==1;
     }
 }
