@@ -4,7 +4,14 @@ public class PositionOfRightMostSetBit {
     public static void main(String[] args) {
         int n = 224;
         int res = findRightMostSetBitPosition(n);
+        int res2 = method1(n);
         System.out.println(res);
+        System.out.println(res2);
+    }
+
+    static int method1(int n){
+        int ans = n&-n;
+        return (int) (Math.log(ans)/Math.log(2) + 1);
     }
 
     private static int findRightMostSetBitPosition(int n) {
