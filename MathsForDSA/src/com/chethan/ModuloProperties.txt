@@ -1,0 +1,64 @@
+Properties:
+1-> (a + b) % m = ((a % m) + (b % m)) % m
+2-> (a - b) % m = ((a % m) - (b % m) + m) % m
+3-> (a * b) % m = ((a % m) * (b % m)) % m
+4-> (a / b) % m = ((a % m) * (b^-1 % m)) % m  --- (b^-1 % m) -> Multiplicative modulo inverse(MMI) -> b & m are co-primes
+Ex-> (6 * y) % 7 = 1  --> y is a MMI for 6 and y=6
+
+5-> (a % m) % m = a % m
+6-> m^x % m = 0    For-all x belongs to positive integers
+
+Extras:
+If P is a prime Number which is not a divisor of b
+Then, ab^(p-1) % p = a % p due to Fermat's Little Theorem
+// This will be covered in Advanced DSA Course
+
+Die-Hard Challenge:
+You should draw exactly 4gallons of water, but you've provided 3Gallons jug and 5Gallons jug.
+How you'll Draw exactly 4gallons of water?
+Let's assume A = 3 Gallons bucket and B = 5 Gallons bucket.
+Attempt   Initial      Capacity After      Final
+  No      Capacity     drawing Water      Capacity
+1st  ->   (0, 0)   ->     (3, 0)      ->   (0, 3)  // Draw 3 Gallons to bucket A and Fill it to bucket B.
+2nd  ->   (0, 3)   ->     (3, 3)      ->   (1, 5)  // Completely Fill bucket B after drawing 3 Gallons from B.
+3rd  ->   (1, 5)   ->     (1, 0)      ->   (0, 1)  // Empty the bucket B and Fill 1Gallon from A to B.
+4th  ->   (0, 1)   ->     (3, 1)      ->   (0, 4)  // Draw 3 Gallons to bucket A and Fill it to B.
+
+Jug a -> s1 times
+Jug b -> s2 times
+Remainder:
+r = as1 - bs2
+r = as1 + (-b)s2
+
+L = s1a + t1b
+s1a = L - t1b
+s2 = u
+
+r = s1a + t1b - t1b -bs2
+r = L - t1b -bs2
+r = L - (t1 + u)b
+
+If (t1 + u) != 0  =>  [r>0 or r<0]
+Which is not true
+So,
+t1 + u = 0 => (u = -t1)
+______________________
+ r = s1a + t1b = L
+______________________
+
+ax + by = r
+Ex= 3x + 4y = r
+What is the Minimum Positive value can be formed by giving value of x and y
+If x=-3 and y=2 --> This is HCF/ GCD
+r=1
+3x + 5y = 4
+Since HCF of 3 & 5 is 1 you can form any gallons of water
+
+HCF/GCD of 2 Nos a & b = Min +ve value of equation ax + by, where x&y are integers.
+Ex-> HCF(4, 18) = ?
+Factors of 4  is 1, 2, 4
+Factors of 18 is 1, 2, 3, 6, 9
+-------------------------------
+       HCF/GCD = 2
+-------------------------------
+
