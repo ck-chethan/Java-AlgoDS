@@ -1,9 +1,10 @@
 package com.chethan;
 
+// Time Complexity = O(n * sqt(n))
 public class AllThePrimeNumbersLessThanN {
     public static void main(String[] args) {
         int n = 40;
-        for (int i = 0; i <= n; i++) {
+        for (int i = 2; i <= n; i++) {
             if(isPrime(i)) {
                 System.out.print(i + " ");
             }
