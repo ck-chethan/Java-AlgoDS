@@ -1,9 +1,10 @@
 package com.chethan;
 
-class BSLeetcode704 {
+class BS704Leetcode {
     public static void main(String[] args) {
         int[] arr = {-1,0,3,5,9,12};
-        System.out.print(search(arr, 0));
+        int target = 0;
+        System.out.print(search(arr, target));
     }
     static int search(int[] nums, int target) {
         return bs(nums, target, 0, nums.length-1);
