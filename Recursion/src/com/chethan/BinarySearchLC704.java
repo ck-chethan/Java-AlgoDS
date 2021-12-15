@@ -1,11 +1,10 @@
 package com.chethan;
 
-class BS704Leetcode {
-    public static void main(String[] args) {
-        int[] arr = {-1,0,3,5,9,12};
-        int target = 0;
-        System.out.print(search(arr, target));
-    }
+public class BinarySearchLC704 {public static void main(String[] args) {
+    int[] arr = {-1,0,3,5,9,12};
+    int target = 0;
+    System.out.print(search(arr, target));
+}
     static int search(int[] nums, int target) {
         return bs(nums, target, 0, nums.length-1);
     }
