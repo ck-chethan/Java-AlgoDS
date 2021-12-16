@@ -4,7 +4,7 @@ package com.chethan.easy;
 public class SumOfDigits {
     public static void main(String[] args) {
         int n = 1342;
-        int res = method1(n);
+        int res = method2(n);
         System.out.print(res);
     }
 
@@ -16,5 +16,12 @@ public class SumOfDigits {
             n/=10;
         }
         return sum;
+    }
+
+    static int method2(int n){
+        if(n == 0){
+            return 0;
+        }
+        return ((n % 10) + method2(n / 10));
     }
 }
