@@ -15,7 +15,7 @@ public class CountingZeros {
     }
 
     public static void main(String[] args) {
-        int n = 300302;
+        int n = 10000;
         int res = method1(n);
         System.out.println(res);
         method2(n);
