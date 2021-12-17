@@ -26,7 +26,7 @@ public class FindAllIndexLinearSearch {
         search(arr, index + 1, target);
     }
 
-     static ArrayList findAllIndexes(int[] arr, int index, int target, ArrayList<Integer> list){
+     static ArrayList<Integer> findAllIndexes(int[] arr, int index, int target, ArrayList<Integer> list){
 
         if(index == arr.length){
             return list;
@@ -37,7 +37,7 @@ public class FindAllIndexLinearSearch {
         return findAllIndexes(arr, index + 1, target, list);
     }
 
-    static ArrayList findAllIndexes2(int[] arr, int index, int target){
+    static ArrayList<Integer> findAllIndexes2(int[] arr, int index, int target){
         ArrayList<Integer> list = new ArrayList<>();
 
         if(index == arr.length){
