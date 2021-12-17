@@ -9,8 +9,7 @@ public class FindAllIndexLinearSearch {
         int target = 3;
         search(arr, 0, target);
         System.out.println(list);
-        ArrayList<Integer> elements = new ArrayList<>();
-        System.out.println(findAllIndexes(arr, 0, target, elements));
+        System.out.println(findAllIndexes(arr, 0, target, new ArrayList<>()));
     }
 
     static ArrayList<Integer> list = new ArrayList<>();
