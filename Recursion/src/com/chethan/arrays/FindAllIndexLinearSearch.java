@@ -5,11 +5,13 @@ import java.util.Arrays;
 
 public class FindAllIndexLinearSearch {
     public static void main(String[] args) {
-        int[] arr = {3, 2, 3, 1, 3, 18, 3, 9};
+        int[] arr = {3, 2, 3, 1, 3, 18, 3, 9, 3};
         int target = 3;
         search(arr, 0, target);
         System.out.println(list);
         System.out.println(findAllIndexes(arr, 0, target, new ArrayList<>()));
+        ArrayList<Integer> elements = findAllIndexes2(arr, 0 ,3);
+        System.out.println(elements);
     }
 
     static ArrayList<Integer> list = new ArrayList<>();
@@ -33,5 +35,20 @@ public class FindAllIndexLinearSearch {
             list.add(index);
         }
         return findAllIndexes(arr, index + 1, target, list);
+    }
+
+    static ArrayList findAllIndexes2(int[] arr, int index, int target){
+        ArrayList<Integer> list = new ArrayList<>();
+
+        if(index == arr.length){
+            return list;
+        }
+        //This will contain answer for this function call only
+        if(arr[index] == target){
+            list.add(index);
+        }
+        ArrayList<Integer> ansFromBelowCalls =  findAllIndexes2(arr, index + 1, target);
+        list.addAll(ansFromBelowCalls);
+        return list;
     }
 }
