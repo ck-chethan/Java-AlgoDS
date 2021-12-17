@@ -22,9 +22,6 @@ public class BubbleSortRecursion {
             }
             sortAsc(arr, r,c + 1);
         }else{
-            if(arr[r]<arr[c]) {
-                swap(arr, r, c);
-            }
             sortAsc(arr, r-1, 0);
         }
     }
@@ -39,9 +36,6 @@ public class BubbleSortRecursion {
             }
             sortDsc(arr, r,c + 1);
         }else{
-            if(arr[r]>arr[c]) {
-                swap(arr, r, c);
-            }
             sortDsc(arr, r-1, 0);
         }
     }
