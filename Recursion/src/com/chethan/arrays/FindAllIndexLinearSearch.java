@@ -9,6 +9,8 @@ public class FindAllIndexLinearSearch {
         int target = 3;
         search(arr, 0, target);
         System.out.println(list);
+        ArrayList<Integer> elements = new ArrayList<>();
+        System.out.println(findAllIndexes(arr, 0, target, elements));
     }
 
     static ArrayList<Integer> list = new ArrayList<>();
@@ -21,5 +23,16 @@ public class FindAllIndexLinearSearch {
             list.add(index);
         }
         search(arr, index + 1, target);
+    }
+
+     static ArrayList findAllIndexes(int[] arr, int index, int target, ArrayList<Integer> list){
+
+        if(index == arr.length){
+            return list;
+        }
+        if(arr[index] == target){
+            list.add(index);
+        }
+        return findAllIndexes(arr, index + 1, target, list);
     }
 }
