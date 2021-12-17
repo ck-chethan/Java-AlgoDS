@@ -15,7 +15,7 @@ package com.chethan.arrays;
 public class RotatedBinarySearch {
     public static void main(String[] args) {
         int[] arr = {5, 6, 7, 1, 2, 3, 4};
-        int target = 8;
+        int target = 3;
         int res = search(arr, target, 0, arr.length - 1);
         System.out.println(res);
     }
@@ -34,11 +34,9 @@ public class RotatedBinarySearch {
             }
             return search(arr, target, mid + 1, e);
         }
-        else {
-            if(target>=arr[mid] && target<=arr[e]) {
-                return search(arr, target, mid + 1, e);
-            }
-            return search(arr, target, s, mid - 1);
+        if(target>=arr[mid] && target<=arr[e]) {
+            return search(arr, target, mid + 1, e);
         }
+        return search(arr, target, s, mid - 1);
     }
 }
