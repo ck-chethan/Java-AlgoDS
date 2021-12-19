@@ -6,6 +6,7 @@ import java.util.Arrays;
 // At every level 'N' elements being merged and total Log(n) level is there
 // Total time = N*O(log(N))
 // Space Complexity = O(N)
+// T(N) = T(N/2) + T(N/2) + (N - 1)
 
 public class MergeSort {
     public static void main(String[] args) {
