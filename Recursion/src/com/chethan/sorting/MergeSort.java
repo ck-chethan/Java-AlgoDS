@@ -2,6 +2,11 @@ package com.chethan.sorting;
 
 import java.util.Arrays;
 
+// Time complexity
+// At every level 'N' elements being merged and total Log(n) level is there
+// Total time = N*O(log(N))
+// Space Complexity = O(N)
+
 public class MergeSort {
     public static void main(String[] args) {
         int[] arr = {3, 1, 8, 7, 2, 5, 0, 4, 9, 6};
