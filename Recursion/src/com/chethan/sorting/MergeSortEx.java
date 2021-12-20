@@ -13,12 +13,13 @@ class MergeSortEx
         int n2 = r - m;
 
         /* Create temp arrays */
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+        int[] L = new int[n1];
+        int[] R = new int[n2];
 
         /*Copy data to temp arrays*/
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
+//        for (int i = 0; i < n1; ++i)
+//            L[i] = arr[l + i];
+        System.arraycopy(arr, l, L, 0, n1);
         for (int j = 0; j < n2; ++j)
             R[j] = arr[m + 1 + j];
 
@@ -58,7 +59,7 @@ class MergeSortEx
 
     // Main function that sorts arr[l..r] using
     // merge()
-    static void sort(int arr[], int l, int r)
+    static void sort(int[] arr, int l, int r)
     {
         if (l < r) {
             // Find the middle point
@@ -74,18 +75,17 @@ class MergeSortEx
     }
 
     /* A utility function to print array of size n */
-    static void printArray(int arr[])
+    static void printArray(int[] arr)
     {
         int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
+        for (int j : arr) System.out.print(j + " ");
         System.out.println();
     }
 
     // Driver code
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {3, 1, 8, 7, 2, 5, 0, 4, 9, 6};
+        int[] arr = {3, 1, 8, 7, 2, 5, 0, 4, 9, 6};
 
         System.out.println("Given Array");
         printArray(arr);
