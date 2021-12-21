@@ -17,7 +17,6 @@ package com.chethan.sorting;
 // Merge + Insertion
 //           |-> Works well with particularly sorted algorithm
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class QuickSort {
