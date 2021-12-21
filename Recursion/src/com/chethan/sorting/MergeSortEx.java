@@ -1,9 +1,20 @@
 package com.chethan.sorting;
 
-class MergeSortEx
-{
-    static void merge(int[] arr, int l, int m, int r)
-    {
+public class MergeSortEx {
+
+    public static void main(String[] args) {
+        int[] arr = {3, 1, 8, 7, 2, 5, 0, 4, 9, 6};
+
+        System.out.println("Given Array");
+        printArray(arr);
+
+        sort(arr, 0, arr.length - 1);
+
+        System.out.println("\nSorted array");
+        printArray(arr);
+    }
+
+    static void merge(int[] arr, int l, int m, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
 
@@ -45,8 +56,7 @@ class MergeSortEx
         }
     }
 
-    static void sort(int[] arr, int l, int r)
-    {
+    static void sort(int[] arr, int l, int r) {
         if (l < r) {
             int m =l+ (r-l)/2;
 
@@ -57,23 +67,10 @@ class MergeSortEx
         }
     }
 
-    static void printArray(int[] arr)
-    {
+    static void printArray(int[] arr) {
         int n = arr.length;
         for (int j : arr) System.out.print(j + " ");
         System.out.println();
     }
 
-    public static void main(String[] args)
-    {
-        int[] arr = {3, 1, 8, 7, 2, 5, 0, 4, 9, 6};
-
-        System.out.println("Given Array");
-        printArray(arr);
-
-        sort(arr, 0, arr.length - 1);
-
-        System.out.println("\nSorted array");
-        printArray(arr);
-    }
 }
