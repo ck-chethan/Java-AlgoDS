@@ -5,7 +5,8 @@ public class RemoveCharacterFromString {
         String str = "abaccadavrrvrhhhkhdkr";
         char tar = 'a';
         String res = removeChar(str, tar, "", 0, str.length());
-        System.out.print(res);
+        System.out.println(res);
+        method1("", str, tar);
     }
 
     static String removeChar(String str, char tar, String ans, int s, int e) {
@@ -17,5 +18,18 @@ public class RemoveCharacterFromString {
         }
         s++;
         return removeChar(str, tar, ans, s, e);
+    }
+
+    static void method1(String p, String up, char tar) {
+        if(up.isEmpty()){
+            System.out.print(p);
+            return;
+        }
+        char ch = up.charAt(0);
+        if(ch == tar){
+            method1(p, up.substring(1), tar);
+        } else{
+            method1(p + ch, up.substring(1), tar);
+        }
     }
 }
