@@ -3,6 +3,12 @@ package com.chethan.strings;
 import java.util.ArrayList;
 import java.util.List;
 
+// Time complexity:
+// O(N * 2^N)
+// Total Number of Levels = N
+// 2^N -> Number of subsets
+
+// Space complexity: O(2^N * N)
 public class Subset {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3};
