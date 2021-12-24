@@ -5,14 +5,17 @@ import java.util.ArrayList;
 public class Permutations {
     public static void main(String[] args) {
         String str = "abc";
+
+        // Method 1
         permutation("", str);
+
+        // Method 2
         ArrayList<String> res = permutationList("", str);
         System.out.println(res);
 
+        // Permutation Count
         int res1 = permutationCount("", str);
         System.out.println(res1);
-
-
     }
 
     static void permutation(String p, String up) {
@@ -35,10 +38,8 @@ public class Permutations {
             list.add(p);
             return list;
         }
-
         char ch = up.charAt(0);
         ArrayList<String> ans = new ArrayList<>();
-
         for (int i = 0; i <= p.length() ; i++) {
             String f = p.substring(0, i);
             String s = p.substring(i, p.length());
