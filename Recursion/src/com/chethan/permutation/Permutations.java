@@ -52,7 +52,6 @@ public class Permutations {
         if(up.isEmpty()){
             return 1;
         }
-
         int count = 0;
         char ch = up.charAt(0);
         for (int i = 0; i <= p.length() ; i++) {
