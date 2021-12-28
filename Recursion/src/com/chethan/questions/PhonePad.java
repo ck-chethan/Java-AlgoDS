@@ -1,9 +1,12 @@
 package com.chethan.questions;
 
+import java.util.ArrayList;
+
 class PhonePad {
     public static void main(String[] args) {
         String dig = "12";
-        pad("", dig);
+        ArrayList<String> res = padList("", dig);
+        System.out.println(res);
     }
 
     static void pad(String p, String up){
@@ -16,5 +19,20 @@ class PhonePad {
             char ch = (char) ('a' + i);
             pad(p + ch, up.substring(1));
         }
+    }
+
+    static ArrayList<String> padList(String p, String up){
+        if(up.isEmpty()){
+            ArrayList<String> list = new ArrayList<>();
+            list.add(p);
+            return list;
+        }
+        int digit = up.charAt(0) - '0';
+        ArrayList<String> ans = new ArrayList<>();
+        for (int i = (digit - 1) * 3; i < digit * 3; i++) {
+            char ch = (char) ('a' + i);
+            ans.addAll(padList(p + ch, up.substring(1)));
+        }
+        return ans;
     }
 }
