@@ -1,8 +1,6 @@
 package com.chethan.questions;
 
-import java.util.ArrayList;
-
-class PhonePadLeetcode17 {
+class PhonePad {
     public static void main(String[] args) {
         String dig = "12";
         pad("", dig);
