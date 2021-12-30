@@ -14,6 +14,9 @@ public class Maze {
         System.out.println();
         System.out.println(pathRet("", n, n));
         System.out.println(pathRetDiagonal("", n, n));
+        System.out.println();
+        boolean[][] board = {{true, true, true}, {true, false, true}, {true, true, true}};
+        pathWithRestrictions("", board, 0, 0);
     }
 
     static int count(int r, int c){
@@ -97,5 +100,21 @@ public class Maze {
             list.addAll(pathRetDiagonal(p + 'D',r - 1,c - 1));
         }
         return list;
+    }
+
+    static void pathWithRestrictions(String p, boolean[][] maze, int r, int c){
+        if(r == (maze.length - 1) && c == (maze[0].length - 1)){
+            System.out.println(p);
+            return;
+        }
+        if(!maze[r][c]){
+            return;
+        }
+        if(r < maze.length - 1) {
+            pathWithRestrictions(p + 'D', maze, r + 1, c);
+        }
+        if(c < maze.length - 1) {
+            pathWithRestrictions(p + 'R', maze, r, c + 1);
+        }
     }
 }
