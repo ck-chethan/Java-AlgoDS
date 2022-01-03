@@ -1,5 +1,9 @@
 package com.chethan.backtracking;
 
+// For each row we'll have 9 Possibilities
+// Each Row has 9*9 => 81 => N^2 Possibilities
+// Overall 9 columns are present, so => 9^N^2
+// Time complexity = O(9^(N^2))
 class SudokuSolverLC37 {
     public static void main(String[] args) {
         int[][] board = new int[][]{
