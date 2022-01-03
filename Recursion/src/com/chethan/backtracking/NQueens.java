@@ -61,7 +61,9 @@ public class NQueens {
                 if(element){
                     System.out.print("Q ");
                 }
-                System.out.print("X ");
+                else {
+                    System.out.print("X ");
+                }
             }
             System.out.println();
         }
