@@ -2,7 +2,7 @@ package com.chethan.backtracking;
 
 public class NQueens {
     public static void main(String[] args) {
-        int n = 4;
+        int n = 5;
         boolean[][] board = new boolean[n][n];
         int res = queens(board, 0);
         System.out.println(res);
