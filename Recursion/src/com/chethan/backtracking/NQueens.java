@@ -1,5 +1,7 @@
 package com.chethan.backtracking;
 
+// Space Complexity = O(N^2)
+// Time Complexity = T(N) = N*T(N-1) + O(N^2) = O(N^3 + N!) = O(N!)
 public class NQueens {
     public static void main(String[] args) {
         int n = 5;
