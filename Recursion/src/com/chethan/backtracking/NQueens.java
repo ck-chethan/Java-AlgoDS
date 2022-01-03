@@ -16,11 +16,13 @@ public class NQueens {
         }
         int count = 0;
         // Placing the queen and checking for every row and column.
-        for (int col = 0; col < board.length; col++) {
+        for (int col = 0; col < board[0].length; col++) {
             // Place the queen if it's safe
             if(isSafe(board, row, col)){
                 board[row][col] = true;
+                // Go to next row
                 count += queens(board, row + 1);
+                // Backtracking
                 board[row][col] = false;
             }
         }
