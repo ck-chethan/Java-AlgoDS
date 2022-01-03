@@ -63,7 +63,9 @@ public class NKnights {
             }
         }
         if(isValid(board, row - 1, col + 2)){
-            return !board[row - 1][col + 2];
+            if(board[row - 1][col + 2]) {
+                return false;
+            }
         }
         return true;
     }
