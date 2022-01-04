@@ -1,7 +1,7 @@
 package com.chethan.leetCode.easy;
 
 // https://leetcode.com/problems/contains-duplicate/
-// Leetcode - 217
+// Leetcode - Easy - 217
 
 import java.util.Arrays;
 import java.util.HashSet;
