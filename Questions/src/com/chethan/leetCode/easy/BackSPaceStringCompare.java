@@ -6,33 +6,50 @@ package com.chethan.leetCode.easy;
 class BackSPaceStringCompare {
     public static void main(String[] args) {
         String s = "ab##";
-        String t = "c#d#";
+        String t = "a#de";
         boolean res = backspaceCompare(s, t);
         System.out.println(res);
     }
     static boolean backspaceCompare(String s, String t) {
-        String ss = "";
-        String ts = "";
-        for (int i = 0; i < s.length(); i++) {
-            if(!(i < (s.length()-1) && (s.charAt(i+1) == '#'))){
-                if(!(t.charAt(i) == '#')) {
-                    ss += s.charAt(i);
+        int s_pointer = s.length() - 1;
+        int t_pointer = t.length() - 1;
+
+        int s_skips = 0;
+        int t_skips = 0;
+
+        while(s_pointer >= 0 || t_pointer >= 0){
+            while (s_pointer >= 0) {
+                if(s.charAt(s_pointer) == '#') {
+                    s_skips += 1;
+                    s_pointer -= 1;
+                } else if(s_skips > 0){
+                    s_pointer -= 1;
+                    s_skips -= 1;
+                } else{
+                    break;
                 }
             }
-            else {
-                i += 1;
-            }
-        }
-        for (int i = 0; i < t.length(); i++) {
-            if(!(i < (t.length() -1) && (t.charAt(i+1) == '#'))){
-                if(!(t.charAt(i) == '#')) {
-                    ts += t.charAt(i);
+
+            while (t_pointer >= 0) {
+                if(t.charAt(t_pointer) == '#') {
+                    t_skips += 1;
+                    t_pointer -= 1;
+                } else if(t_skips > 0){
+                    t_pointer -= 1;
+                    t_skips -= 1;
+                } else{
+                    break;
                 }
             }
-            else {
-                i += 1;
+            if(s_pointer >= 0 && t_pointer >= 0 && s.charAt(s_pointer) != t.charAt(t_pointer)){
+                return false;
             }
+            if(s_pointer >= 0 != t_pointer >= 0) {
+                return false;
+            }
+            s_pointer -= 1;
+            t_pointer -= 1;
         }
-        return ss.equals(ts);
+        return true;
     }
 }
