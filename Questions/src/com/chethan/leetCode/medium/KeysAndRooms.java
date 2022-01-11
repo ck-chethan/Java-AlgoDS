@@ -1,16 +1,13 @@
 package com.chethan.leetCode.medium;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 // https://leetcode.com/problems/keys-and-rooms/
 // Leetcode - Medium - 841
 
 class KeysAndRooms {
     public static void main(String[] args) {
-        int[][] inps = {{1}, {2}, {3}, {}};
+        int[][] inps = {{1}, {2}, {1, 2}, {}};
         List<List<Integer>> rooms = new ArrayList<>();
         for (int[] ints : inps) {
             List<Integer> room = new ArrayList<>();
@@ -21,7 +18,7 @@ class KeysAndRooms {
         }
         System.out.println(rooms);
 
-        boolean res = canVisitAllRooms(rooms);
+        boolean res = canVisitAllRooms2(rooms);
         System.out.println(res);
     }
     static boolean canVisitAllRooms(List<List<Integer>> rooms) {
@@ -46,5 +43,22 @@ class KeysAndRooms {
             }
         }
         return true;
+    }
+
+    static boolean canVisitAllRooms2(List<List<Integer>> rooms) {
+        Set<Integer> s = new HashSet<>();
+        s.add(0);
+        helper(0,rooms,s);
+        return s.size()==rooms.size();
+    }
+    static void helper(int key, List<List<Integer>> rooms, Set<Integer> s)
+    {
+        List<Integer> l = rooms.get(key);
+        for (Integer integer : l) {
+            if (!s.contains(integer)) {
+                s.add(integer);
+                helper(integer, rooms, s);
+            }
+        }
     }
 }
