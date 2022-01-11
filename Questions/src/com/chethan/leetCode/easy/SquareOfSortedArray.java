@@ -8,7 +8,7 @@ import java.util.Arrays;
 class SquareOfSortedArray {
     public static void main(String[] args) {
         int[] nums = {-4,-1,0,3,10};
-        int[] res = sortedSquares(nums);
+        int[] res = sortedSquares2(nums);
         System.out.println(Arrays.toString(res));
     }
     static int[] sortedSquares(int[] nums) {
@@ -43,5 +43,21 @@ class SquareOfSortedArray {
             counter ++;
         }
         return sortedSquaredArr;
+    }
+
+    static int[] sortedSquares2(int[] nums) {
+        int[] nums1 = new int[nums.length];
+        int start = 0, end = nums.length-1, position;
+        while(start<=end){
+            position = end-start;
+            if(Math.abs(nums[start]) > Math.abs(nums[end])){
+                nums1[position]=nums[start]*nums[start];
+                start++;
+            }else{
+                nums1[position]=nums[end]*nums[end];
+                end--;
+            }
+        }
+        return nums1;
     }
 }
