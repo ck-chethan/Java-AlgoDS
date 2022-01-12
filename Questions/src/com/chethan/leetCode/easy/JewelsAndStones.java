@@ -6,7 +6,7 @@ package com.chethan.leetCode.easy;
 class JewelsAndStones {
     public static void main(String[] args) {
         String jewels = "aA", stones = "aAAbbbb";
-        int res = numJewelsInStones(jewels, stones);
+        int res = numJewelsInStones2(jewels, stones);
         System.out.println(res);
     }
     static int numJewelsInStones(String jewels, String stones) {
@@ -17,6 +17,16 @@ class JewelsAndStones {
                 if(stones.charAt(j) == c){
                     res++;
                 }
+            }
+        }
+        return res;
+    }
+
+    static int numJewelsInStones2(String jewels, String stones) {
+        int res = 0;
+        for (int i = 0; i < stones.length(); i++) {
+            if(jewels.indexOf(stones.charAt(i)) > -1){
+                res++;
             }
         }
         return res;
