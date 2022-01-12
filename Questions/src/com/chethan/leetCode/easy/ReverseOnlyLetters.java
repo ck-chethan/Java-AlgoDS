@@ -4,11 +4,12 @@ package com.chethan.leetCode.easy;
 // Leetcode - Easy - 917
 
 import java.util.Arrays;
+import java.util.Stack;
 
 class ReverseOnlyLetters {
     public static void main(String[] args) {
         String s = "a-bC-dEf-ghIj";
-        String res = reverseOnlyLetters2(s);
+        String res = reverseOnlyLettersUsingStack(s);
         System.out.println(res);
     }
     static String reverseOnlyLetters(String s) {
@@ -49,5 +50,25 @@ class ReverseOnlyLetters {
             }
         }
         return new String(arr);
+    }
+
+    static String reverseOnlyLettersUsingStack(String s) {
+        Stack<Character> letters = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            if(Character.isLetter(s.charAt(i))){
+                letters.push(s.charAt(i));
+            }
+        }
+
+        StringBuilder reversed_str = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            if(Character.isLetter(s.charAt(i))){
+                reversed_str.append(letters.pop());
+            } else {
+                reversed_str.append(s.charAt(i));
+            }
+        }
+        return reversed_str.toString();
     }
 }
