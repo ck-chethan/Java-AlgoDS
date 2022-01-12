@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 class SpiralMatrixII {
     public static void main(String[] args) {
-        int n = 3;
-        int[][] res = generateMatrix(n);
+        int n = 4;
+        int[][] res = generateMatrix2(n);
         for(int[] re: res) {
             System.out.println(Arrays.toString(re));
         }
@@ -46,5 +46,30 @@ class SpiralMatrixII {
             colBegin++;
         }
         return res;
+    }
+
+    static int[][] generateMatrix2(int n) {
+        int[][] soln = new int[n][n];
+        int left = 0, right = n-1, top = 0, bottom = n-1;
+        int count = 1;
+        while (count <= n*n) {
+            for (int j=left; j<=right; j++) {
+                soln[top][j] = count++;
+            }
+            top++;
+            for (int i=top; i<=bottom; i++) {
+                soln[i][right] = count++;
+            }
+            right--;
+            for (int j=right; j>=left; j--) {
+                soln[bottom][j] = count++;
+            }
+            bottom--;
+            for (int i=bottom; i>=top; i--) {
+                soln[i][left] = count++;
+            }
+            left++;
+        }
+        return soln;
     }
 }
