@@ -9,7 +9,7 @@ import java.util.Stack;
 class ReverseOnlyLetters {
     public static void main(String[] args) {
         String s = "a-bC-dEf-ghIj";
-        String res = reverseOnlyLettersUsingStack(s);
+        String res = reverseOnlyLetters3(s);
         System.out.println(res);
     }
     static String reverseOnlyLetters(String s) {
@@ -50,6 +50,25 @@ class ReverseOnlyLetters {
             }
         }
         return new String(arr);
+    }
+
+    static String reverseOnlyLetters3(String s) {
+        int j = s.length() - 1;
+        StringBuilder rev_str = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            if(Character.isLetter(s.charAt(i))){
+                while (!Character.isLetter(s.charAt(j))){
+                    j--;
+                }
+                rev_str.append(s.charAt(j));
+                j--;
+            } else {
+                rev_str.append(s.charAt(i));
+            }
+        }
+
+        return rev_str.toString();
     }
 
     static String reverseOnlyLettersUsingStack(String s) {
