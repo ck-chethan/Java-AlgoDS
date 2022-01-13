@@ -8,8 +8,24 @@ import java.util.Arrays;
 class SortArrayByParity {
     public static void main(String[] args) {
         int[] nums = {1, 3};
-        int[] res = sortArrayByParity(nums);
+        int[] res = sortArrayByParity2(nums);
         System.out.println(Arrays.toString(res));
+    }
+
+    static int[] sortArrayByParity2(int[] nums) {
+        int[] newArr = new int[nums.length];
+        int counter = 0;
+        for (int num : nums) {
+            if (num % 2 == 0) {
+                newArr[counter++] = num;
+            }
+        }
+        for (int num : nums) {
+            if (num % 2 == 1) {
+                newArr[counter++] = num;
+            }
+        }
+        return newArr;
     }
 
     static int[] sortArrayByParity(int[] nums) {
