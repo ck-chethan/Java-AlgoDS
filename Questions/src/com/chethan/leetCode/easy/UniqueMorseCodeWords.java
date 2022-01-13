@@ -9,7 +9,7 @@ import java.util.HashSet;
 class UniqueMorseCodeWords {
     public static void main(String[] args) {
         String[] words = {"gin","zen","gig","msg"};
-        int res = uniqueMorseRepresentations(words);
+        int res = uniqueMorseRepresentations2(words);
         System.out.println(res);
 
     }
@@ -27,6 +27,20 @@ class UniqueMorseCodeWords {
                 out += morseCode.get(word.charAt(i));
             }
             res.add(out);
+        }
+        return res.size();
+    }
+
+    static int uniqueMorseRepresentations2(String[] words) {
+        String[] MORSE = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+
+        HashSet<String> res = new HashSet<>();
+        for(String word: words){
+            StringBuilder out = new StringBuilder();
+            for (char c: word.toCharArray()) {
+                out.append(MORSE[c-'a']);
+            }
+            res.add(out.toString());
         }
         return res.size();
     }
