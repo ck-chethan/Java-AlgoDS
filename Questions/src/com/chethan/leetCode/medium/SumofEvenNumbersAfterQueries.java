@@ -15,7 +15,7 @@ class SumofEvenNumbersAfterQueries {
     static int[] sumEvenAfterQueries(int[] nums, int[][] queries) {
         int[] sumArr = new int[nums.length];
         int i = 0;
-        while(i<queries.length) {
+        while(i<sumArr.length) {
             int index = queries[i][1];
             nums[index] += queries[i][0];
             int sumRes = evenSum(nums);
