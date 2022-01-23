@@ -13,7 +13,6 @@ class RepeatedSubstringPattern {
         boolean ans;
         String ss =s+s;
 
-        ans=(ss.substring(1,ss.length()-1).contains(s));
-        return ans;
+        return (ss.substring(1,ss.length()-1).contains(s));
     }
 }
