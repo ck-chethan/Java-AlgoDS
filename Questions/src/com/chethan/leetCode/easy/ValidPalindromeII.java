@@ -6,7 +6,7 @@ package com.chethan.leetCode.easy;
 class ValidPalindromeII {
     public static void main(String[] args) {
         String s = "aba";
-        boolean res = validPalindrome(s);
+        boolean res = validPalindrome2(s);
         System.out.println(res);
     }
     static boolean validPalindrome(String s) {
@@ -34,5 +34,15 @@ class ValidPalindromeII {
         }
 
         return true;
+    }
+
+    static boolean validPalindrome2(String s) {
+        return validPalindrome(0, s.length() - 1, s, false);
+    }
+
+    static boolean validPalindrome(int start, int end, String s, boolean used) {
+        if (start >= end) return true;
+        if (s.charAt(start) == s.charAt(end)) return validPalindrome(start + 1, end - 1, s, used);
+        return used ? false : validPalindrome(start + 1, end, s, true) || validPalindrome(start, end - 1, s, true);
     }
 }
