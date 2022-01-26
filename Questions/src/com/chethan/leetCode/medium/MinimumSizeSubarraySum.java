@@ -3,8 +3,6 @@ package com.chethan.leetCode.medium;
 // https://leetcode.com/problems/minimum-size-subarray-sum/
 // 209. Minimum Size Subarray Sum - Leetcode - Medium
 
-import java.util.Arrays;
-
 class MinimumSizeSubarraySum {
     public static void main(String[] args) {
         int[] nums = {2, 3, 1, 2, 4, 3};
