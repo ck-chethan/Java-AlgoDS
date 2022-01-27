@@ -3,11 +3,13 @@ package com.chethan.leetCode.medium;
 // https://leetcode.com/problems/remove-k-digits/
 // 402. Remove K Digits - Leetcode - Medium
 
+import java.util.Stack;
+
 class RemoveKDigits {
     public static void main(String[] args) {
         String num = "1432219";
         int k = 3;
-        String res = removeKdigits(num, k);
+        String res = removeKdigits2(num, k);
         System.out.println(res);
     }
     static String removeKdigits(String num, int k) {
@@ -27,5 +29,33 @@ class RemoveKDigits {
         int offset = 0;
         while (offset < target - 1 && stack[offset] == '0') offset++;
         return new String(stack, offset, target - offset);
+    }
+
+    static String removeKdigits2(String num, int k) {
+        if(k==num.length() || k>num.length()){
+            return "0";
+        }
+        Stack<Character> st=new Stack<>();
+        for(int i=0;i<num.length();i++){
+            char ch=num.charAt(i);
+            while(!st.isEmpty() && k>0 && st.peek()>ch){
+                st.pop();
+                k--;
+            }
+            st.push(ch);
+        }
+
+        while(!st.isEmpty() && k>0){
+            st.pop();
+            k--;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        while(!st.isEmpty())
+            sb.append(st.pop());
+        sb.reverse();
+        while(sb.length()>1 && sb.charAt(0)=='0')
+            sb.deleteCharAt(0);
+        return sb.toString();
     }
 }
