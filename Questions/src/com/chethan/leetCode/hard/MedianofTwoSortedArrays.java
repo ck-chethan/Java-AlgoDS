@@ -7,7 +7,7 @@ class MedianofTwoSortedArrays {
     public static void main(String[] args) {
         int[] nums1 = {1, 2};
         int[] nums2 = {3, 4};
-        double res = findMedianSortedArrays2(nums1, nums2);
+        double res = findMedianSortedArrays3(nums1, nums2);
         System.out.println(res);
     }
     static double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -91,5 +91,26 @@ class MedianofTwoSortedArrays {
             median = res[n/2];
         }
         return median;
+    }
+
+    static double findMedianSortedArrays3(int[] nums1, int[] nums2) {
+        int[] arr = merge(nums1, nums2);
+        if(arr.length%2==0){
+            return (arr[arr.length/2]+arr[arr.length/2-1])/2.0;
+        }
+        return (arr[arr.length/2]);
+    }
+    static int[] merge(int[] arr1, int[] arr2){
+        int[] arr = new int[arr1.length+arr2.length];
+        int i=0;
+        int j=0;
+        int k=0;
+        while(i<arr1.length && j<arr2.length){
+            if(arr1[i]>arr2[j])arr[k++]=arr2[j++];
+            else arr[k++]=arr1[i++];
+        }
+        while(i<arr1.length) arr[k++] = arr1[i++];
+        while(j<arr2.length) arr[k++] = arr2[j++];
+        return arr;
     }
 }
