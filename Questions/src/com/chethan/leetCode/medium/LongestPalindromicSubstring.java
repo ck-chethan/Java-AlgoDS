@@ -6,7 +6,7 @@ package com.chethan.leetCode.medium;
 class LongestPalindromicSubstring {
     public static void main(String[] args) {
         String s = "babad";
-        String res = longestPalindrome2(s);
+        String res = longestPalindrome3(s);
         System.out.println(res);
     }
     static String longestPalindrome(String s) {
@@ -77,5 +77,42 @@ class LongestPalindromicSubstring {
         }
 
         return right - left - 1;
+    }
+
+    static String longestPalindrome3(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+
+        int maxLen = 1;
+        int bestStart = 0;
+
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = true;
+            if (i + 1 < n) {
+                if (s.charAt(i) == s.charAt(i + 1)) {
+                    dp[i][i + 1] = true;
+                    maxLen = 2;
+                    bestStart = i;
+                }
+            }
+        }
+
+        for (int col = 2; col < n; col++) {
+            for (int row = 0; row < n - 2; row++) {
+                if (dp[row + 1][col - 1] && s.charAt(row) == s.charAt(col)) {
+                    dp[row][col] = true;
+                    int len = col - row + 1;
+                    if (len > maxLen) {
+                        maxLen = len;
+                        bestStart = row;
+                    }
+                }
+            }
+        }
+
+        return s.substring(bestStart, bestStart + maxLen);
     }
 }
