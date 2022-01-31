@@ -16,9 +16,7 @@ class RichestCustomerWealth {
             for (int account: person){
                 bal+=account;
             }
-            if(bal>max){
-                max = bal;
-            }
+            max = Math.max(max, bal);
         }
         return max;
     }
