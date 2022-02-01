@@ -6,7 +6,7 @@ package com.chethan.leetCode.easy;
 class BestTimeToBuyAndSellStock {
     public static void main(String[] args) {
         int[] prices = {7,1,5,3,6,4};
-        int res = maxProfit(prices);
+        int res = maxProfit2(prices);
         System.out.println(res);
     }
     static int maxProfit(int[] prices) {
@@ -18,5 +18,21 @@ class BestTimeToBuyAndSellStock {
             cheapest = Math.min(cheapest, prices[i]);
         }
         return maxProfit;
+    }
+
+    static int maxProfit2(int[] prices){
+        int buyat = prices[0];
+        int maxprof = 0;
+
+        for(int price: prices) {
+
+            if(price<buyat) {
+                buyat = price;
+            }
+
+            else if(price -buyat > maxprof)
+                maxprof = price - buyat;
+        }
+        return maxprof;
     }
 }
