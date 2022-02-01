@@ -1,3 +1,5 @@
+// Find a maximum distance between the frogs when they quarel and jumps to neighbouring up-block if possible
+
 class FrogJumps {
     public static void main(String[] args) {
         int[] blocks = {1, 5, 5, 2, 6};
