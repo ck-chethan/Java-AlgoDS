@@ -7,9 +7,9 @@ class FrogJumps {
 
     public static int solution(int[] blocks){
         int maxAns = 0;
-//        if(blocks.length == 2){
-//            return 2;
-//        }
+        if(blocks.length == 2){
+            return 2;
+        }
         for (int i = 0; i < blocks.length; i++) {
             int ans = tracePath(i, blocks);
             if(ans > maxAns){
@@ -31,6 +31,6 @@ class FrogJumps {
                 ncount++;
             }
         }
-        return Integer.max(pcount, ncount);
+        return (pcount + ncount);
     }
 }
