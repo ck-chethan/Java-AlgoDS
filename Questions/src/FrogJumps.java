@@ -2,7 +2,7 @@
 
 class FrogJumps {
     public static void main(String[] args) {
-        int[] blocks = {1, 5, 5, 2, 6};
+        int[] blocks = {1, 5, 5, 2, 6, 3};
         int res = solution(blocks);
         System.out.println(res);
     }
