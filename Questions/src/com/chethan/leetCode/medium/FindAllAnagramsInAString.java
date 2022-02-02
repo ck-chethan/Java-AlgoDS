@@ -1,6 +1,7 @@
 package com.chethan.leetCode.medium;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // https://leetcode.com/problems/find-all-anagrams-in-a-string/
@@ -10,7 +11,7 @@ class FindAllAnagramsInAString {
     public static void main(String[] args) {
         String s = "cbaebabacd";
         String p = "abc";
-        List<Integer> res = findAnagrams(s, p);
+        List<Integer> res = findAnagrams2(s, p);
         System.out.println(res);
     }
     static List<Integer> findAnagrams(String s, String p) {
@@ -45,5 +46,26 @@ class FindAllAnagramsInAString {
             if (a[i] != b[i])
                 return false;
         return true;
+    }
+
+    static List<Integer> findAnagrams2(String s, String p) {
+        List<Integer> ans=new ArrayList<>();
+        int s_len=s.length();
+        int p_len=p.length();
+        int[] freq1 = new int[26];
+        for(int i=0;i<p_len;i++){
+            freq1[p.charAt(i)-'a']++;
+        }
+        for(int i=0;i<s_len;i++){
+
+            int[] freq2 = new int[26];
+            for(int j=i;j<i+p_len&&j<s_len;j++){
+                freq2[s.charAt(j)-'a']++;
+            }
+            if(Arrays.equals(freq1,freq2)){
+                ans.add(i);
+            }
+        }
+        return ans;
     }
 }
