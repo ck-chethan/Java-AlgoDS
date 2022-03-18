@@ -30,10 +30,6 @@ class SUM3 {
                 }
             }
         }
-
-
         return new ArrayList<>(ans);
-
-
     }
 }
