@@ -6,7 +6,7 @@ package com.chethan.leetCode.medium;
 class StringToInteger {
     public static void main(String[] args) {
         String s = "4193 with words";
-        int out = myAtoi(s);
+        int out = myAtoi2(s);
         System.out.println(out);
     }
     public static int myAtoi(String s) {
@@ -53,5 +53,37 @@ class StringToInteger {
         finalOut = (int) tempOut;
         
         return finalOut;
+    }
+
+    public static int myAtoi2(String s) {
+        //trim the leading spaces in the string
+        s = s.trim();
+        //set default sign as positive
+        int sign = 1;
+        int res = 0;
+
+        for(int i = 0; i < s.length(); i++) {
+            //check for sign
+            if(i == 0 && (s.charAt(i) == '-' || s.charAt(i) == '+')) {
+                if(s.charAt(i) == '-') {
+                    sign = -1;
+                }
+                continue;
+            }
+            //if the char is not digit, break the loop
+            if(s.charAt(i) < '0' || s.charAt(i) > '9') break;
+
+            //check if the number is out of range
+            if(res >= Integer.MAX_VALUE / 10 + 1) return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            if(res == Integer.MAX_VALUE / 10) {
+                if(sign == 1 && Character.getNumericValue(s.charAt(i)) >= 8) {
+                    return Integer.MAX_VALUE;
+                } else if(sign == -1 && Character.getNumericValue(s.charAt(i)) > 8) {
+                    return Integer.MIN_VALUE;
+                }
+            }
+            res = res * 10 + Character.getNumericValue(s.charAt(i));
+        }
+        return res*sign;
     }
 }
