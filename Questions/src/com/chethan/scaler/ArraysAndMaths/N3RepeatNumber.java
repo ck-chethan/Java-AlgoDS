@@ -1,5 +1,6 @@
 package com.chethan.scaler.ArraysAndMaths;
 
+import java.util.Collections;
 import java.util.List;
 
 /*Q4. N/3 Repeat Number
@@ -73,6 +74,22 @@ public class N3RepeatNumber {
         if (count2 > N / 3)
             return second;
 
+        return -1;
+    }
+    public int repeatedNumber2(final List<Integer> A) {
+        int num;
+        int n = A.size();
+        Collections.sort(A);
+        for (int i = 0; i < n;) {
+            int freq = 0;
+            num = A.get(i);
+            while (i < n && A.get(i) == num) {
+                freq++;
+                i++;
+            }
+            if (freq * 3 > n)
+                return num;
+        }
         return -1;
     }
 }
