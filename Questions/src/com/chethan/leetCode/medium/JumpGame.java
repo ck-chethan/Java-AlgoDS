@@ -19,4 +19,14 @@ public class JumpGame {
         }
         return true;
     }
+
+    public static boolean canJump2(int[] nums) {
+        int goal = nums.length-1;
+        for(int i=nums.length-1; i>=0; i--){
+            if(i + nums[i] >= goal){
+                goal = i;
+            }
+        }
+        return goal == 0;
+    }
 }
