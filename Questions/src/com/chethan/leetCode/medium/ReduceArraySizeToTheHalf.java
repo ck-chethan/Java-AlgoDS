@@ -6,9 +6,53 @@ import java.util.stream.Collectors;
 
 public class ReduceArraySizeToTheHalf {
     public static void main(String[] args) {
-        int[] arr = {1,9};
-        int res = minSetSize(arr);
+        int[] arr = {3,3,3,3,5,5,5,2,2,7};
+        int res = minSetSize3(arr);
         System.out.println(res);
+    }
+
+    public static int minSetSize3(int[] arr) {
+        int size = arr.length;
+        HashMap<Integer, Integer> numCnt = new HashMap<>();
+        for (int num : arr) {
+            numCnt.put(num, numCnt.getOrDefault(num, 0) + 1);
+        }
+        ArrayList<Integer> cnts = new ArrayList<>(numCnt.values());
+        cnts.sort(Collections.reverseOrder());
+        int rem = size / 2, pos = 0;
+        while (rem > 0)
+            rem -= cnts.get(pos++);
+        return pos;
+    }
+
+    public static int minSetSize2(int[] arr) {
+        Map<Integer, Integer> map = new HashMap<>();
+        ArrayList<Integer>[] list = new ArrayList[arr.length + 1];
+
+        for (int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        for (int num : map.keySet()) {
+            int count = map.get(num);
+            if (list[count] == null) {
+                list[count] = new ArrayList<>();
+            }
+            list[count].add(num);
+        }
+
+        int steps = 0, res = 0;
+        for (int i = arr.length; i > 0; i--) {
+            List<Integer> cur = list[i];
+            if (cur == null || cur.size() == 0) continue;
+            for (int num : cur) {
+                steps += i;
+                res++;
+                if (steps >= arr.length / 2)
+                    return res;
+            }
+        }
+        return arr.length;
     }
 
     public static int minSetSize(int[] arr) {
