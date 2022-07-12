@@ -1,4 +1,4 @@
-package com.chethan.leetCode.easy.PrefixSum;
+package com.chethan.leetCode.LC75;
 
 // 724. Find Pivot Index - Easy
 
