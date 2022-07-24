@@ -25,4 +25,19 @@ public class NumberOfGoodPairs {
 
         return count;
     }
+
+    public static int numIdenticalPairs2(int[] nums) {
+        int gPair =0;
+        int[] ans = new int[101];
+        for (int num : nums) {
+            ans[num]++;
+        }
+        for(int i=0;i<100;i++){
+            int temp = ans[i];
+            if(temp>0){
+                gPair += ((temp)*(temp-1))/2;
+            }
+        }
+        return gPair;
+    }
 }
