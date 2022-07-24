@@ -1,4 +1,4 @@
-package com.chethan.leetCode.easy;
+package com.chethan.leetCode.easy.Hashing;
 
 import java.util.HashMap;
 
